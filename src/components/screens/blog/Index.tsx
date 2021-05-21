@@ -6,6 +6,7 @@ import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { Layout, Text } from "@ui-kitten/components";
 // import CachedImage from "react-native-expo-cached-image";
 import { SharedElement } from "react-navigation-shared-element";
+import { MotiView } from "moti";
 import dayjs from "dayjs";
 
 import { Container, CustomSafeAreaView, CustomText } from "../../index";
@@ -75,23 +76,51 @@ export const BlogView = ({ blog, index, goBack }: Props) => {
                 <CustomText text={title} category="h1" style={styles.title} />
               </SharedElement>
               <View style={[globalStyles.rowBetween, styles.otherInfo]}>
-                <Text>
-                  <CustomText text="Written by " />
-                  <CustomText
-                    text={author}
-                    fontWeight="bold"
-                    style={{ fontFamily: "RobotoBold" }}
-                  />
-                </Text>
-                <View>
+                <MotiView
+                  from={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    type: "timing",
+                    duration: 1000,
+                  }}
+                >
+                  <Text>
+                    <CustomText text="Written by " />
+                    <CustomText
+                      text={author}
+                      fontWeight="bold"
+                      style={{ fontFamily: "RobotoBold" }}
+                    />
+                  </Text>
+                </MotiView>
+                <MotiView
+                  from={{ translateX: 150 }}
+                  animate={{ translateX: 0 }}
+                  transition={{
+                    type: "timing",
+                    duration: 1000,
+                  }}
+                >
                   <CustomText
                     text={date}
                     style={{ fontFamily: "RobotoLightItalic" }}
                   />
-                </View>
+                </MotiView>
               </View>
             </View>
-            <CustomText text={content} style={styles.blogContent} />
+            <MotiView
+              from={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                type: "timing",
+                duration: 1000,
+                scale: {
+                  type: "timing",
+                },
+              }}
+            >
+              <CustomText text={content} style={styles.blogContent} />
+            </MotiView>
           </View>
         </View>
       </Container>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
 
 import * as eva from "@eva-design/eva";
 // import 'react-native-reanimated'
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
-import { ApplicationProvider, Text } from "@ui-kitten/components";
+import { ApplicationProvider } from "@ui-kitten/components";
 
 import mapping from "./mapping.json";
 import { light, dark } from "@eva-design/eva";

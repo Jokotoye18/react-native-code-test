@@ -35,16 +35,13 @@ const Blog = ({ blog, index, onPress }: Props) => {
   const { title, imageUrl } = blog;
   return (
     <MotiView
-      from={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
+      from={{ translateY: -100 }}
+      animate={{ translateY: 0 }}
       transition={{
         type: "timing",
-        duration: 350,
-
-        scale: {
-          type: "spring",
-          delay: 100,
-        },
+        duration: 1000,
+        // delay: 3000,
+        
       }}
     >
       <Layout style={[globalStyles.rowCenter, { marginBottom: hp(50) }]}>
